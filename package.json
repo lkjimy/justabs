@@ -1,0 +1,27 @@
+{
+  "name": "justabs",
+  "version": "0.0.0",
+  "description": "Just tabs... Nothing else.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "live-server --port=4000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lkjimy/justabs.git"
+  },
+  "keywords": [
+    "tabs",
+    "navs"
+  ],
+  "author": "lkjimy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lkjimy/justabs/issues"
+  },
+  "homepage": "https://github.com/lkjimy/justabs#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

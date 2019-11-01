@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    body{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Open Sans', Helvetica, sans-serif;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 500px;
+    }
+
+    li {
+      flex: 1;
+      transition: 200ms ease;
+      text-align: justify;
+    }
+
+    #just-tabs {
+      margin-bottom: 16px;
+    }
+
+    #just-tabs li {
+      padding: 10px;
+      background-color: #ccc;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    #just-tabs li.active {
+      background-color: #F15D4A;
+    }
+
+    #just-tabs li:hover {
+      background-color: #EEE;
+    }
+
+    #just-tabs-panels li {
+      padding: 16px;
+      box-shadow: 0px 2px 6px rgba(0,0,0,.04),
+                  0px 4px 12px rgba(0,0,0,.04),
+                  0px 6px 18px rgba(0,0,0,.04),
+                  0px 8px 24px rgba(0,0,0,.04);
+      display: none;
+    }
+
+    #just-tabs-panels li.active{
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+
+    <!-- Tabs -->
+    <ul data-tab="panelTabs" id="just-tabs">
+      <li data-target="panel1" class="active">Pane 1</li>
+      <li data-target="panel2">Pane 2</li>
+      <li data-target="panel3">Pane 3</li>
+      <li data-target="panel4">Pane 4</li>
+      <li data-target="panel5">Pane 5</li>
+    </ul>
+
+    <!-- Panels -->
+    <ul data-panel="panelTabs" id="just-tabs-panels">
+      <li data-name="panel1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor nulla condimentum feugiat pharetra. Vestibulum ultrices vulputate imperdiet. Sed nunc dolor, finibus non rutrum accumsan, fringilla in sem. Fusce ullamcorper lobortis lacus, bibendum porttitor enim aliquet nec. Suspendisse vitae turpis nisi. Nam quis sem libero.
+      </li>
+
+      <li data-name="panel2">
+        Vivamus ultricies purus nibh, nec bibendum magna vulputate a. Fusce commodo nec urna at congue. Duis semper dui vestibulum porttitor scelerisque. Phasellus rutrum enim non ante semper finibus.
+      </li>
+
+      <li data-name="panel3">
+        Duis justo est, pharetra et venenatis id, tincidunt ac magna. Praesent venenatis eleifend nibh, et dignissim elit sagittis a. Morbi in justo ut erat tincidunt venenatis.
+      </li>
+
+      <li data-name="panel4">
+        Ut eu mi et velit congue rhoncus. Nam nec porttitor est, sed tempor quam. Maecenas sit amet urna lectus. Ut tincidunt suscipit vehicula. Sed non metus et elit aliquet facilisis.
+      </li>
+
+      <li data-name="panel5">
+          Vivamus elementum, quam ac sagittis aliquam, arcu lectus consequat libero, nec aliquam neque libero sed est.
+      </li>
+    </ul>
+
+    <script src="./src/index.js"></script>
+
+</body>
+</html>
