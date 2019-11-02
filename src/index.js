@@ -1,3 +1,5 @@
+'use strict'
+
 function activatePanel (tabGroup) {
 
   // Collecting initial data
