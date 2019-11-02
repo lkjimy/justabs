@@ -1,7 +1,7 @@
 # justabs
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/lkjimy/justabs/blob/master/LICENSE)
-[![npm](https://img.shields.io/badge/npm-v0.0.1-red.svg?style=flat&logo=npm)](https://www.npmjs.com/package/justabs)
+[![npm](https://img.shields.io/badge/npm-v0.1.0-red.svg?style=flat&logo=npm)](https://www.npmjs.com/package/justabs)
 [![Releases](https://img.shields.io/badge/releases-none-red.svg?style=flat)](https://github.com/lkjimy/justabs/releases)
 
 > Just tabs... Nothing else.
