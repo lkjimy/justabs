@@ -1,6 +1,6 @@
 'use strict'
 
-function activatePanel (tabGroup) {
+function justabs (tabGroup) {
 
   // Collecting initial data
   let tabTabsContainer = document.querySelectorAll(`[data-tab="${tabGroup}"].just-tabs`)
@@ -8,7 +8,7 @@ function activatePanel (tabGroup) {
 
   // Checking data
   if (tabTabsContainer[1] || tabPanelsContainer[1]) {
-    throw new Error('Please use different name for a another set of tabs')
+    throw new Error('Please use different name for a new set of tabs')
   }
 
   // Collecting data inside data
@@ -43,7 +43,3 @@ function activatePanel (tabGroup) {
     }
   }
 }
-
-activatePanel('panelTabs')
-activatePanel('panelTabs1')
-activatePanel('panelTabs2')

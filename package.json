@@ -4,8 +4,9 @@
   "description": "Just tabs... Nothing else.",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/babel src --out-dir dist",
+    "build:js": "./node_modules/.bin/babel src/js --out-dir dist/js",
+    "build:css": "node-sass --output-style compressed src/scss/style.scss dist/css/justabs.min.css",
+    "build": "npm run build:js && npm run build:css",
     "dev": "live-server --port=4000"
   },
   "repository": {
@@ -26,7 +27,8 @@
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
-    "live-server": "^1.2.1"
+    "live-server": "^1.2.1",
+    "node-sass": "^4.13.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.6.0"

@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 
+  <link rel="stylesheet" href="./dist/css/justabs.min.css">
+
   <style>
     body{
       display: flex;
@@ -59,11 +61,6 @@
                   0px 4px 12px rgba(0,0,0,.04),
                   0px 6px 18px rgba(0,0,0,.04),
                   0px 8px 24px rgba(0,0,0,.04);
-      display: none;
-    }
-
-    .just-tabs-panels li.active{
-      display: flex;
     }
   </style>
 </head>
@@ -111,12 +108,12 @@
     <ul data-panel="panelTabs1" class="just-tabs-panels">
       <li data-name="panel1" class="active">
         <div data-tab="panelTabs2" class="just-tabs">
-          <div data-target="panel1">Pane 1</div>
+          <div data-target="panel1" class="active">Pane 1</div>
           <div data-target="panel2">Pane 2</div>
         </div>
 
         <div data-panel="panelTabs2" class="just-tabs-panels">
-          <div data-name="panel1">Pane 1</div>
+          <div data-name="panel1" class="active">Pane 1</div>
           <div data-name="panel2">Pane 2</div>
         </div>
       </li>
@@ -126,8 +123,12 @@
       </li>
     </ul>
 
-
-    <script src="./src/index.js"></script>
+    <script src="./dist/js/index.js"></script>
+    <script>
+      justabs('panelTabs')
+      justabs('panelTabs1')
+      justabs('panelTabs2')
+    </script>
 
 </body>
 </html>

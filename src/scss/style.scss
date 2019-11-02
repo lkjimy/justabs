@@ -1,0 +1,9 @@
+@charset 'UTF-8';
+
+.just-tabs-panels > * {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
