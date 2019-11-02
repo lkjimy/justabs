@@ -53,7 +53,7 @@
       background-color: #EEE;
     }
 
-    .just-tabs-panels li {
+    .just-tabs-panels > * {
       padding: 16px;
       box-shadow: 0px 2px 6px rgba(0,0,0,.04),
                   0px 4px 12px rgba(0,0,0,.04),
@@ -108,17 +108,17 @@
     </ul>
 
     <!-- Panels -->
-    <ul data-panel="panelTabs1" class="just-tabs">
+    <ul data-panel="panelTabs1" class="just-tabs-panels">
       <li data-name="panel1" class="active">
-        <ul data-tab="panelTabs2" class="just-tabs">
-          <li data-target="panel1">Pane 1</li>
-          <li data-target="panel2">Pane 2</li>
-        </ul>
+        <div data-tab="panelTabs2" class="just-tabs">
+          <div data-target="panel1">Pane 1</div>
+          <div data-target="panel2">Pane 2</div>
+        </div>
 
-        <ul data-panel="panelTabs2" class="just-tabs-panels">
-          <li data-name="panel1">Pane 1</li>
-          <li data-name="panel2">Pane 2</li>
-        </ul>
+        <div data-panel="panelTabs2" class="just-tabs-panels">
+          <div data-name="panel1">Pane 1</div>
+          <div data-name="panel2">Pane 2</div>
+        </div>
       </li>
 
       <li data-name="panel2">
