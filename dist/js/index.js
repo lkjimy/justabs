@@ -2,8 +2,8 @@
 
 function justabs(tabGroup) {
   // Collecting initial data
-  let tabTabsContainer = document.querySelectorAll("[data-tab=\"".concat(tabGroup, "\"].just-tabs"));
-  let tabPanelsContainer = document.querySelectorAll("[data-panel=\"".concat(tabGroup, "\"].just-tabs-panels")); // Checking data
+  let tabTabsContainer = document.querySelectorAll("[data-tab=\"".concat(tabGroup, "\"].justabs"));
+  let tabPanelsContainer = document.querySelectorAll("[data-panel=\"".concat(tabGroup, "\"].justabs-panels")); // Checking data
 
   if (tabTabsContainer[1] || tabPanelsContainer[1]) {
     throw new Error('Please use different name for a new set of tabs');

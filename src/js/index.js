@@ -3,8 +3,8 @@
 function justabs (tabGroup) {
 
   // Collecting initial data
-  let tabTabsContainer = document.querySelectorAll(`[data-tab="${tabGroup}"].just-tabs`)
-  let tabPanelsContainer = document.querySelectorAll(`[data-panel="${tabGroup}"].just-tabs-panels`)
+  let tabTabsContainer = document.querySelectorAll(`[data-tab="${tabGroup}"].justabs`)
+  let tabPanelsContainer = document.querySelectorAll(`[data-panel="${tabGroup}"].justabs-panels`)
 
   // Checking data
   if (tabTabsContainer[1] || tabPanelsContainer[1]) {
