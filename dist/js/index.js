@@ -1,5 +1,10 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
 function justabs(tabGroup) {
   // Collecting initial data
   let tabTabsContainer = document.querySelectorAll("[data-tab=\"".concat(tabGroup, "\"].justabs"));
@@ -39,3 +44,6 @@ function justabs(tabGroup) {
     }
   }
 }
+
+var _default = justabs;
+exports.default = _default;

@@ -2,7 +2,7 @@
   "name": "justabs",
   "version": "0.1.1",
   "description": "Just tabs... Nothing else.",
-  "main": "./dist/index.js",
+  "main": "./dist/js/index.js",
   "scripts": {
     "build:js": "./node_modules/.bin/babel src/js --out-dir dist/js",
     "build:css": "node-sass --output-style compressed src/scss/style.scss dist/css/justabs.min.css",
