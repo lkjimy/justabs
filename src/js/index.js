@@ -1,44 +1,46 @@
 'use strict'
 
-function justabs (tabGroup) {
+export default {
+  justabs (tabGroup) {
 
-  // Collecting initial data
-  let tabTabsContainer = document.querySelectorAll(`[data-tab="${tabGroup}"].justabs`)
-  let tabPanelsContainer = document.querySelectorAll(`[data-panel="${tabGroup}"].justabs-panels`)
+    // Collecting initial data
+    let tabTabsContainer = document.querySelectorAll(`[data-tab="${tabGroup}"].justabs`)
+    let tabPanelsContainer = document.querySelectorAll(`[data-panel="${tabGroup}"].justabs-panels`)
 
-  // Checking data
-  if (tabTabsContainer[1] || tabPanelsContainer[1]) {
-    throw new Error('Please use different name for a new set of tabs')
-  }
-
-  // Collecting data inside data
-  let tabTabs = tabTabsContainer[0].children
-  let tabPanels = tabPanelsContainer[0].children
-
-  // Adding listeners
-  for (let item of tabTabs) {
-    let target = item.getAttribute('data-target')
-
-    item.addEventListener("click", (event) => {
-      toggleTab(target)
-    })
-  }
-
-  // Toggle Handler
-  function toggleTab (target) {
-    for (let item of tabTabs) {
-      item.classList.remove('active')
-
-      if (item.getAttribute('data-target') === target) {
-        item.classList.add('active')
-      }
+    // Checking data
+    if (tabTabsContainer[1] || tabPanelsContainer[1]) {
+      throw new Error('Please use different name for a new set of tabs')
     }
 
-    for (let item of tabPanels) {
-      item.classList.remove('active')
+    // Collecting data inside data
+    let tabTabs = tabTabsContainer[0].children
+    let tabPanels = tabPanelsContainer[0].children
 
-      if (item.getAttribute('data-name') === target) {
-        item.classList.add('active')
+    // Adding listeners
+    for (let item of tabTabs) {
+      let target = item.getAttribute('data-target')
+
+      item.addEventListener("click", (event) => {
+        toggleTab(target)
+      })
+    }
+
+    // Toggle Handler
+    function toggleTab (target) {
+      for (let item of tabTabs) {
+        item.classList.remove('active')
+
+        if (item.getAttribute('data-target') === target) {
+          item.classList.add('active')
+        }
+      }
+
+      for (let item of tabPanels) {
+        item.classList.remove('active')
+
+        if (item.getAttribute('data-name') === target) {
+          item.classList.add('active')
+        }
       }
     }
   }
