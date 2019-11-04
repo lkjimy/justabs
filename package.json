@@ -1,6 +1,6 @@
 {
   "name": "justabs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Just tabs... Nothing else.",
   "main": "./dist/js/index.js",
   "scripts": {
