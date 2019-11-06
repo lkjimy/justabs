@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Justabs</title>
 
   <link rel="stylesheet" href="./dist/css/justabs.min.css">
 
@@ -123,11 +123,13 @@
     </li>
   </ul>
 
-  <script src="./dist/js/index.js"></script>
+  <!-- <script src="./dist/js/index.js"></script> -->
+
   <script>
-    justabs({tabGroup: 'panelTabs', togglable: true})
-    justabs({tabGroup: 'panelTabs1', togglable: false})
-    justabs({tabGroup: 'panelTabs2', togglable: false})
+    var tab1 = new Justabs('panelTabs')
+    var tab2 = new Justabs('panelTabs1', true)
+    var tab3 = new Justabs('panelTabs2', true)
+    console.log(tab1, tab2, tab3)
   </script>
 
 </body>

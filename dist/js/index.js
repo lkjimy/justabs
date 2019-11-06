@@ -1,64 +1,75 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
+class Justabs {
+  constructor(tabGroup) {
+    let togglable = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    this.tabGroup = tabGroup;
+    this.togglable = togglable;
+    this.tabTabsContainer = this._captureContainers().tabTabsContainer;
+    this.tabPanelsContainer = this._captureContainers().tabPanelsContainer;
+    this.tabTabs = this.tabTabsContainer.children || [];
+    this.tabPanels = this.tabPanelsContainer.children || [];
 
-function justabs(options) {
-  const {
-    tabGroup = '',
-    togglable = false
-  } = options; // Collecting initial data
+    this._addListeners();
 
-  let tabTabsContainer = document.querySelectorAll("[data-tab=\"".concat(tabGroup, "\"].justabs"));
-  let tabPanelsContainer = document.querySelectorAll("[data-panel=\"".concat(tabGroup, "\"].justabs-panels")); // Checking data
+    this._testActiveDuplicates();
+  }
 
-  if (tabTabsContainer[1] || tabPanelsContainer[1]) {
-    throw new Error('Please use different name for a new set of tabs');
-  } // Collecting data inside data
+  _captureContainers() {
+    let tabTabsContainer = document.querySelectorAll("[data-tab=\"".concat(this.tabGroup, "\"].justabs"));
+    let tabPanelsContainer = document.querySelectorAll("[data-panel=\"".concat(this.tabGroup, "\"].justabs-panels")); // Checking data
 
-
-  let tabTabs = tabTabsContainer[0].children;
-  let tabPanels = tabPanelsContainer[0].children; // Checking for active duplicates
-
-  let counter1 = 0;
-  let counter2 = 0;
-
-  for (let item of tabTabs) {
-    if (item.classList.contains('active')) {
-      counter1++;
+    if (tabTabsContainer[1] || tabPanelsContainer[1]) {
+      throw new Error('Please use different name for a new set of tabs');
     }
 
-    if (counter1 > 1) {
-      counter = 0;
-      throw new Error('Please do not activate multiple tabs at once. Remove the extra active classes');
+    tabTabsContainer = tabTabsContainer[0];
+    tabPanelsContainer = tabPanelsContainer[0];
+    return {
+      tabTabsContainer,
+      tabPanelsContainer
+    };
+  }
+
+  _addListeners() {
+    for (let item of this.tabTabs) {
+      let target = item.getAttribute('data-target');
+      item.addEventListener("click", event => {
+        this.toggleTab(target);
+      });
     }
   }
 
-  for (let item of tabPanels) {
-    if (item.classList.contains('active')) {
-      counter2++;
+  _testActiveDuplicates() {
+    let counter1 = 0;
+    let counter2 = 0;
+
+    for (let item of this.tabTabs) {
+      if (item.classList.contains('active')) {
+        counter1++;
+      }
+
+      if (counter1 > 1) {
+        counter = 0;
+        throw new Error('Please do not activate multiple tabs at once. Remove the extra active classes');
+      }
     }
 
-    if (counter2 > 1) {
-      counter = 0;
-      throw new Error('Please do not activate multiple panels at once. Remove the extra active classes');
+    for (let item of this.tabPanels) {
+      if (item.classList.contains('active')) {
+        counter2++;
+      }
+
+      if (counter2 > 1) {
+        counter = 0;
+        throw new Error('Please do not activate multiple panels at once. Remove the extra active classes');
+      }
     }
-  } // Adding listeners
+  }
 
-
-  for (let item of tabTabs) {
-    let target = item.getAttribute('data-target');
-    item.addEventListener("click", event => {
-      toggleTab(target);
-    });
-  } // Toggle Handler
-
-
-  function toggleTab(target) {
-    if (togglable === false) {
-      for (let item of tabTabs) {
+  toggleTab(target) {
+    if (this.togglable === false) {
+      for (let item of this.tabTabs) {
         item.classList.remove('active');
 
         if (item.getAttribute('data-target') === target) {
@@ -66,7 +77,7 @@ function justabs(options) {
         }
       }
 
-      for (let item of tabPanels) {
+      for (let item of this.tabPanels) {
         item.classList.remove('active');
 
         if (item.getAttribute('data-name') === target) {
@@ -74,7 +85,7 @@ function justabs(options) {
         }
       }
     } else {
-      for (let item of tabTabs) {
+      for (let item of this.tabTabs) {
         if (item.getAttribute('data-target') !== target) {
           item.classList.remove('active');
         }
@@ -86,7 +97,7 @@ function justabs(options) {
         }
       }
 
-      for (let item of tabPanels) {
+      for (let item of this.tabPanels) {
         if (item.getAttribute('data-name') !== target) {
           item.classList.remove('active');
         }
@@ -99,7 +110,5 @@ function justabs(options) {
       }
     }
   }
-}
 
-var _default = justabs;
-exports.default = _default;
+}
