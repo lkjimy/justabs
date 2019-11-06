@@ -4,10 +4,13 @@
   "description": "Just tabs... Nothing else.",
   "main": "./dist/js/index.js",
   "scripts": {
+    "watch:js": "./node_modules/.bin/babel src/js --watch --out-dir dist/js",
+    "watch:css": "npm run build:css && node-sass --output-style compressed --watch src/scss/style.scss dist/css/justabs.min.css",
     "build:js": "./node_modules/.bin/babel src/js --out-dir dist/js",
     "build:css": "node-sass --output-style compressed src/scss/style.scss dist/css/justabs.min.css",
     "build": "npm run build:js && npm run build:css",
-    "dev": "live-server --port=4000"
+    "server": "live-server --port=4000",
+    "dev": "concurrently 'npm run server' 'npm run watch:js' 'npm run watch:css'"
   },
   "repository": {
     "type": "git",
@@ -27,6 +30,7 @@
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
+    "concurrently": "^5.0.0",
     "live-server": "^1.2.1",
     "node-sass": "^4.13.0"
   },

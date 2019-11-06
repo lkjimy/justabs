@@ -5,8 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-function justabs(tabGroup) {
-  // Collecting initial data
+function justabs(options) {
+  const {
+    tabGroup = '',
+    togglable = false
+  } = options; // Collecting initial data
+
   let tabTabsContainer = document.querySelectorAll("[data-tab=\"".concat(tabGroup, "\"].justabs"));
   let tabPanelsContainer = document.querySelectorAll("[data-panel=\"".concat(tabGroup, "\"].justabs-panels")); // Checking data
 
@@ -16,7 +20,33 @@ function justabs(tabGroup) {
 
 
   let tabTabs = tabTabsContainer[0].children;
-  let tabPanels = tabPanelsContainer[0].children; // Adding listeners
+  let tabPanels = tabPanelsContainer[0].children; // Checking for active duplicates
+
+  let counter1 = 0;
+  let counter2 = 0;
+
+  for (let item of tabTabs) {
+    if (item.classList.contains('active')) {
+      counter1++;
+    }
+
+    if (counter1 > 1) {
+      counter = 0;
+      throw new Error('Please do not activate multiple tabs at once. Remove the extra active classes');
+    }
+  }
+
+  for (let item of tabPanels) {
+    if (item.classList.contains('active')) {
+      counter2++;
+    }
+
+    if (counter2 > 1) {
+      counter = 0;
+      throw new Error('Please do not activate multiple panels at once. Remove the extra active classes');
+    }
+  } // Adding listeners
+
 
   for (let item of tabTabs) {
     let target = item.getAttribute('data-target');
@@ -27,19 +57,45 @@ function justabs(tabGroup) {
 
 
   function toggleTab(target) {
-    for (let item of tabTabs) {
-      item.classList.remove('active');
+    if (togglable === false) {
+      for (let item of tabTabs) {
+        item.classList.remove('active');
 
-      if (item.getAttribute('data-target') === target) {
-        item.classList.add('active');
+        if (item.getAttribute('data-target') === target) {
+          item.classList.add('active');
+        }
       }
-    }
 
-    for (let item of tabPanels) {
-      item.classList.remove('active');
+      for (let item of tabPanels) {
+        item.classList.remove('active');
 
-      if (item.getAttribute('data-name') === target) {
-        item.classList.add('active');
+        if (item.getAttribute('data-name') === target) {
+          item.classList.add('active');
+        }
+      }
+    } else {
+      for (let item of tabTabs) {
+        if (item.getAttribute('data-target') !== target) {
+          item.classList.remove('active');
+        }
+
+        if (item.classList.contains('active')) {
+          item.classList.remove('active');
+        } else if (item.getAttribute('data-target') === target) {
+          item.classList.add('active');
+        }
+      }
+
+      for (let item of tabPanels) {
+        if (item.getAttribute('data-name') !== target) {
+          item.classList.remove('active');
+        }
+
+        if (item.classList.contains('active')) {
+          item.classList.remove('active');
+        } else if (item.getAttribute('data-name') === target) {
+          item.classList.add('active');
+        }
       }
     }
   }

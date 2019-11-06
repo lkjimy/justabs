@@ -34,28 +34,28 @@
       text-align: justify;
     }
 
-    .just-tabs {
+    .justabs {
       margin-bottom: 16px;
     }
 
-    .just-tabs li {
+    .justabs li {
       padding: 10px;
       background-color: #ccc;
       cursor: pointer;
       text-align: center;
     }
 
-    .just-tabs li.active {
+    .justabs li.active {
       color: white;
       background-color: #F15D4A;
     }
 
-    .just-tabs li:hover {
+    .justabs li:hover {
       color: black;
       background-color: #EEE;
     }
 
-    .just-tabs-panels > * {
+    .justabs-panels > * {
       padding: 16px;
       box-shadow: 0px 2px 6px rgba(0,0,0,.04),
                   0px 4px 12px rgba(0,0,0,.04),
@@ -66,69 +66,69 @@
 </head>
 <body>
 
-    <!-- Tabs -->
-    <ul data-tab="panelTabs" class="justabs">
-      <li data-target="panel1" class="active">Pane 1</li>
-      <li data-target="panel2">Pane 2</li>
-      <li data-target="panel3">Pane 3</li>
-      <li data-target="panel4">Pane 4</li>
-      <li data-target="panel5">Pane 5</li>
-    </ul>
+  <!-- Tabs -->
+  <ul data-tab="panelTabs" class="justabs">
+    <li data-target="panel1" class="active">Pane 1</li>
+    <li data-target="panel2">Pane 2</li>
+    <li data-target="panel3">Pane 3</li>
+    <li data-target="panel4">Pane 4</li>
+    <li data-target="panel5">Pane 5</li>
+  </ul>
 
-    <!-- Panels -->
-    <ul data-panel="panelTabs" class="justabs-panels">
-      <li data-name="panel1" class="active">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor nulla condimentum feugiat pharetra. Vestibulum ultrices vulputate imperdiet. Sed nunc dolor, finibus non rutrum accumsan, fringilla in sem. Fusce ullamcorper lobortis lacus, bibendum porttitor enim aliquet nec. Suspendisse vitae turpis nisi. Nam quis sem libero.
-      </li>
+  <!-- Panels -->
+  <ul data-panel="panelTabs" class="justabs-panels">
+    <li data-name="panel1" class="active">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor nulla condimentum feugiat pharetra. Vestibulum ultrices vulputate imperdiet. Sed nunc dolor, finibus non rutrum accumsan, fringilla in sem. Fusce ullamcorper lobortis lacus, bibendum porttitor enim aliquet nec. Suspendisse vitae turpis nisi. Nam quis sem libero.
+    </li>
 
-      <li data-name="panel2">
-        Vivamus ultricies purus nibh, nec bibendum magna vulputate a. Fusce commodo nec urna at congue. Duis semper dui vestibulum porttitor scelerisque. Phasellus rutrum enim non ante semper finibus.
-      </li>
+    <li data-name="panel2">
+      Vivamus ultricies purus nibh, nec bibendum magna vulputate a. Fusce commodo nec urna at congue. Duis semper dui vestibulum porttitor scelerisque. Phasellus rutrum enim non ante semper finibus.
+    </li>
 
-      <li data-name="panel3">
-        Duis justo est, pharetra et venenatis id, tincidunt ac magna. Praesent venenatis eleifend nibh, et dignissim elit sagittis a. Morbi in justo ut erat tincidunt venenatis.
-      </li>
+    <li data-name="panel3">
+      Duis justo est, pharetra et venenatis id, tincidunt ac magna. Praesent venenatis eleifend nibh, et dignissim elit sagittis a. Morbi in justo ut erat tincidunt venenatis.
+    </li>
 
-      <li data-name="panel4">
-        Ut eu mi et velit congue rhoncus. Nam nec porttitor est, sed tempor quam. Maecenas sit amet urna lectus. Ut tincidunt suscipit vehicula. Sed non metus et elit aliquet facilisis.
-      </li>
+    <li data-name="panel4">
+      Ut eu mi et velit congue rhoncus. Nam nec porttitor est, sed tempor quam. Maecenas sit amet urna lectus. Ut tincidunt suscipit vehicula. Sed non metus et elit aliquet facilisis.
+    </li>
 
-      <li data-name="panel5">
-        Vivamus elementum, quam ac sagittis aliquam, arcu lectus consequat libero, nec aliquam neque libero sed est.
-      </li>
-    </ul>
+    <li data-name="panel5">
+      Vivamus elementum, quam ac sagittis aliquam, arcu lectus consequat libero, nec aliquam neque libero sed est.
+    </li>
+  </ul>
 
-    <!-- Tabs -->
-    <ul data-tab="panelTabs1" class="justabs">
-      <li data-target="panel1" class="active">Pane 1</li>
-      <li data-target="panel2">Pane 2</li>
-    </ul>
+  <!-- Tabs -->
+  <ul data-tab="panelTabs1" class="justabs">
+    <li data-target="panel1" class="active">Pane 1</li>
+    <li data-target="panel2">Pane 2</li>
+  </ul>
 
-    <!-- Panels -->
-    <ul data-panel="panelTabs1" class="justabs-panels">
-      <li data-name="panel1" class="active">
-        <div data-tab="panelTabs2" class="justabs">
-          <div data-target="panel1" class="active">Pane 1</div>
-          <div data-target="panel2">Pane 2</div>
-        </div>
+  <!-- Panels -->
+  <ul data-panel="panelTabs1" class="justabs-panels">
+    <li data-name="panel1" class="active">
+      <div data-tab="panelTabs2" class="justabs">
+        <div data-target="panel1" class="active">Pane 1</div>
+        <div data-target="panel2">Pane 2</div>
+      </div>
 
-        <div data-panel="panelTabs2" class="justabs-panels">
-          <div data-name="panel1" class="active">Pane 1</div>
-          <div data-name="panel2">Pane 2</div>
-        </div>
-      </li>
+      <div data-panel="panelTabs2" class="justabs-panels">
+        <div data-name="panel1" class="active">Pane 1</div>
+        <div data-name="panel2">Pane 2</div>
+      </div>
+    </li>
 
-      <li data-name="panel2">
-        Vivamus ultricies purus nibh, nec bibendum magna vulputate a. Fusce commodo nec urna at congue. Duis semper dui vestibulum porttitor scelerisque. Phasellus rutrum enim non ante semper finibus.
-      </li>
-    </ul>
+    <li data-name="panel2">
+      Vivamus ultricies purus nibh, nec bibendum magna vulputate a. Fusce commodo nec urna at congue. Duis semper dui vestibulum porttitor scelerisque. Phasellus rutrum enim non ante semper finibus.
+    </li>
+  </ul>
 
-    <script src="./dist/js/index.js"></script>
-    <script>
-      justabs('panelTabs')
-      justabs('panelTabs1')
-      justabs('panelTabs2')
-    </script>
+  <script src="./dist/js/index.js"></script>
+  <script>
+    justabs({tabGroup: 'panelTabs', togglable: true})
+    justabs({tabGroup: 'panelTabs1', togglable: false})
+    justabs({tabGroup: 'panelTabs2', togglable: false})
+  </script>
 
 </body>
 </html>
