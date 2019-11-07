@@ -1,10 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
 class Justabs {
   constructor(tabGroup) {
     let togglable = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
@@ -117,6 +112,3 @@ class Justabs {
   }
 
 }
-
-var _default = Justabs;
-exports.default = _default;

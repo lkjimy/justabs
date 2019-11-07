@@ -117,3 +117,5 @@ class Justabs {
     }
   }
 }
+
+export default Justabs
