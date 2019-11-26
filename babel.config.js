@@ -1,8 +1,10 @@
 const presets = [
+  // ["minify"],
   [
-    "@babel/env",
+    "env",
     {
       targets: {
+        node: "current",
         edge: "17",
         firefox: "60",
         chrome: "67",

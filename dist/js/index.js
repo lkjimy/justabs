@@ -1,13 +1,12 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
 class Justabs {
-  constructor(tabGroup) {
-    let togglable = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  /**
+   * Justabs... Nothing else
+   * @param {String} tabGroup - Name of the data-tab/data-panel groups to activate justabs.
+   * @param {Boolean} togglable - Activate/Deactivate togglable behavior. Show/hide tab on click.
+   */
+  constructor(tabGroup, togglable = false) {
     this.tabGroup = tabGroup;
     this.togglable = togglable;
     this.tabTabsContainer = this._captureContainers().tabTabsContainer;
@@ -21,8 +20,8 @@ class Justabs {
   }
 
   _captureContainers() {
-    let tabTabsContainer = document.querySelectorAll("[data-tab=\"".concat(this.tabGroup, "\"].justabs"));
-    let tabPanelsContainer = document.querySelectorAll("[data-panel=\"".concat(this.tabGroup, "\"].justabs-panels")); // Checking data
+    let tabTabsContainer = document.querySelectorAll(`[data-tab="${this.tabGroup}"].justabs`);
+    let tabPanelsContainer = document.querySelectorAll(`[data-panel="${this.tabGroup}"].justabs-panels`); // Checking data
 
     if (tabTabsContainer[1] || tabPanelsContainer[1]) {
       throw new Error('Please use different name for a new set of tabs');
@@ -118,5 +117,8 @@ class Justabs {
 
 }
 
-var _default = Justabs;
-exports.default = _default;
+try {
+  module.exports = Justabs;
+} catch (error) {
+  window.Justabs = Justabs;
+}

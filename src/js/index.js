@@ -1,6 +1,12 @@
-'use strict'
 
+'use strict'
 class Justabs {
+
+  /**
+   * Justabs... Nothing else
+   * @param {String} tabGroup - Name of the data-tab/data-panel groups to activate justabs.
+   * @param {Boolean} togglable - Activate/Deactivate togglable behavior. Show/hide tab on click.
+   */
   constructor ( tabGroup, togglable = false ) {
 
     this.tabGroup = tabGroup
@@ -118,4 +124,8 @@ class Justabs {
   }
 }
 
-export default Justabs
+try {
+  module.exports = Justabs;
+} catch (error) {
+  window.Justabs = Justabs;
+}
